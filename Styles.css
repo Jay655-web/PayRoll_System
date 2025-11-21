@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.Header{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+}
+
+.Header h1{
+    margin: 10px;
+    padding: 0;
+    font-size: 24px;
+    color: cadetblue;
+}
+
+.Header .Header_link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.Header_link a{
+    text-decoration: none;
+    color: cadetblue;
+    font-size: 18px;
+}
+
+.Header_link a:hover{
+    color: darkblue;
+}
+
+/* .Header_link a:active{
+    color: navy;
+} */
+
+/* .Header_link a:visited{
+    color: purple;
+} */
+/* .Header_link a:focus{
+    outline: 2px solid blue;
+} */
+
+.Header_link button{
+    padding: 13px 20px;
+    border: none;
+    border-radius: 9px;
+    background-color: cadetblue;
+    color: white;
+    font-size: 16px;
+    box-shadow: 2px 2px 5px rgb(155, 154, 154);
+}
+
+.Header_link button:hover{
+    background-color: darkblue;
+    cursor: pointer;
+}
+
+/* .Header_link button:active{
+    background-color: navy;
+} */
