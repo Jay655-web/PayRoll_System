@@ -128,7 +128,8 @@ body{
 }
 
 .navbar_l button:hover{
-    background-color: darkblue;
+    background-color: rgb(51, 130, 133);
+    opacity: 0.9;
     cursor: pointer;
 }
 
@@ -191,6 +192,23 @@ body{
     width: 95%;
 }
 
+@media (max-width: 400px) {
+    .card_layout1{
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    /* Force consistent height so cards look uniform */
+    #card_1, #card_2, #card_3 {
+        height: 220px; /* fixed height for small screens */
+        min-height: 220px;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
 .card_layout1 div{
     display: flex;
     flex-direction: column;
@@ -234,7 +252,8 @@ body{
 }
 
 .run_pay:hover{
-    background-color: darkblue;
+    background-color: rgb(51, 130, 133);
+    opacity: 0.9;
     cursor: pointer;
 }
 
@@ -273,3 +292,20 @@ body{
 .main_area::-webkit-scrollbar{width:10px}
 .main_area::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.12);border-radius:10px}
 .main_area::-webkit-scrollbar-track{background:transparent}
+
+@media (max-width: 400px) {
+    .main_area .card_layout1{
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    /* Force consistent height so cards look uniform */
+    #card_1, #card_2, #card_3 {
+        height: 220px; /* fixed height for small screens */
+        min-height: 220px;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

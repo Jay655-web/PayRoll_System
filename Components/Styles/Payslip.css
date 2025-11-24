@@ -218,18 +218,23 @@ td {
 
 .print-btn {
     margin-top: 20px;
-    background: #2f6fed;
+    background-color: cadetblue;
     color: white;
-    padding: 12px;
+    padding: 10px 20px;
     border: none;
     width: 100%;
-    border-radius: 8px;
+    border-radius: 13px;
     font-size: 17px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgb(155, 154, 154);
     cursor: pointer;
 }
 
-.print-btn:hover { opacity: 0.9; }
-
+.print-btn:hover{
+    background-color: rgb(51, 130, 133);
+    opacity: 0.9;
+    cursor: pointer;
+}
 
 
 /* nicer scrollbar for the main area */

@@ -128,7 +128,8 @@ body{
 }
 
 .navbar_l button:hover{
-    background-color: darkblue;
+    background-color: rgb(51, 130, 133);
+    opacity: 0.9;
     cursor: pointer;
 }
 
@@ -171,6 +172,24 @@ body{
     padding: 40px;
 } */
 
+.run_pay_cal{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: cadetblue;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgb(155, 154, 154);
+}
+
+.run_pay_cal:hover{
+    background-color: rgb(51, 130, 133);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+
 h1{
     margin-bottom: 25px;
 }
@@ -206,6 +225,11 @@ input, select{
     font-weight: bold;
     font-size: 15px;
     box-shadow: 2px 2px 5px rgb(155, 154, 154);
+}
+
+.cal_payroll:hover{
+    background-color: royalblue;
+    cursor: pointer;
 }
 
 .preview{

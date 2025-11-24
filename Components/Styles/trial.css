@@ -128,7 +128,8 @@ body{
 }
 
 .navbar_l button:hover{
-    background-color: darkblue;
+    background-color: rgb(51, 130, 133);
+    opacity: 0.9;
     cursor: pointer;
 }
 

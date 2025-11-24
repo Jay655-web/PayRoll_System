@@ -128,7 +128,8 @@ body{
 }
 
 .navbar_l button:hover{
-    background-color: darkblue;
+    background-color: rgb(51, 130, 133);
+    opacity: 0.9;
     cursor: pointer;
 }
 
@@ -170,6 +171,34 @@ body{
     height: 100%;
     width: 100%;
 } */
+
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.top_buttons button{
+    margin: 4px;
+}
+
+.run_pay{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: cadetblue;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgb(155, 154, 154);
+}
+
+.run_pay:hover{
+    background-color: rgb(51, 130, 133);
+    opacity: 0.9;
+    cursor: pointer;
+}
 
 table{
     width: 100%;
