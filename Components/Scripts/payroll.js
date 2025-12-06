@@ -2,10 +2,14 @@ async function runPayroll() {
     const token = localStorage.getItem("token");
     const period = document.getElementById("period").value;
 
-    const basicSalary = document.getElementById("salary").value;
-    const allowances = document.getElementById("allowances").value;
-    const deductions = document.getElementById("deductions").value;
-    const netSalary = "";
+    const employeeSelect = document.getElementById("selection");
+    const employeeId = employeeSelect.value;
+
+    const basicSalary = parseFloat(document.getElementById("salary").value) || 0;
+    const allowances = parseFloat(document.getElementById("allowances").value) || 0;
+    const deductions = parseFloat(document.getElementById("deductions").value) || 0;
+    
+    const netSalary = basicSalary + allowances - deductions;
 
     const response = await fetch("http://localhost:5000/api/payroll/run", {
         method: "POST",
@@ -14,7 +18,12 @@ async function runPayroll() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            payPeriod: period
+            employeeId,
+            payPeriod: period,
+            basicSalary,
+            allowances,
+            deductions,
+            netSalary
         })
     });
 
@@ -22,10 +31,38 @@ async function runPayroll() {
 
     if(response.ok){
         document.getElementById("message").innerText = "Payroll run successful!";
+
+        const preview = document.querySelector(".preview");
+        preview.innerHTML = `
+            <h3>Payroll Preview</h3>
+            <p><strong>Basic Salary:</strong> ₵${basicSalary.toFixed(2)}</p>
+            <p><strong>Total Allowances:</strong> ₵${allowances.toFixed(2)}</p>
+            <p><strong>Total Deductions:</strong> ₵${deductions.toFixed(2)}</p>
+            <p><strong>Net Salary:</strong> ₵${netSalary.toFixed(2)}</p>
+        `;
+
     }else{
         document.getElementById("message").innerText = data.message;
     }   
 }
+
+async function loadEmployees() {
+    const token = localStorage.getItem("token");
+    const response = await fetch("http://localhost:5000/api/employees", {
+        headers: { "Authorization": `Bearer ${token}` }
+    });
+    const employees = await response.json();
+
+    const select = document.getElementById("selection");
+    employees.forEach(emp => {
+        const option = document.createElement("option");
+        option.value = emp._id;  
+        option.textContent = emp.fullname;
+        select.appendChild(option);
+    });
+}
+
+loadEmployees();
 
 //THIS WILL BE THE FUNCTIONALITY OF THE NAVBAR BUTTONS
 //DASHBOARD

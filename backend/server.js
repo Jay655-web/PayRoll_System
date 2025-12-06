@@ -4,6 +4,7 @@ const path = require("path");
 
 require("dotenv").config({ path: path.join(__dirname, ".env") });
 const connectDB = require("./config/db");
+const authMiddleware = require("./middleware/authMiddleware");
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/employees", require("./routes/employeeRoutes"));
 app.use("/api/payroll", require("./routes/payrollRoutes"));
 app.use("/api/payslip", require("./routes/payslipRoutes"));
+
 
 app.get("/", (req, res) => {
     res.send("Payroll API is running...ohk");

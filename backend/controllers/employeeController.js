@@ -1,21 +1,60 @@
 const Employee = require("../models/Employee");
+const Counter = require("../models/counter");
 
-//CRUD Operations
+//Auto Increment
+async function getNextElementById(){
+    const counter = await Counter.findByIdAndUpdate(
+        {_id: "employeeId"},
+        {$inc: {seq:1}},
+        {new: true, upsert: true}
+    );
 
-//Create Employee
+    return counter.seq;
+}
+
 exports.createEmployee = async (req, res) => {
-    try {
-        const newEmployee = new Employee(req.body);
-        await newEmployee.save();
-        res.json({
-            message: "Employee created successfully", employee: newEmployee 
+    try{
+
+        const employeeId = await getNextElementById();
+
+        const newEmployee = await Employee.create({
+            employeeId,
+            ...req.body
+            // fullname, 
+            // email,
+            // department,
+            // position,
+            // salary,
+            // dateOfJoin
         });
-    } catch (error){
+
+        res.json({
+            message: "Employee created successfully",
+            employee: newEmployee
+        });
+    } catch(error){
         res.status(500).json({
-            message: "Error creating employee", error
+            message: "Error creating employee"
         });
     }
 };
+
+
+//CRUD Operations
+//Create Employee
+// exports.createEmployee = async (req, res) => {
+//     try {
+//         const newEmployee = new Employee(req.body);
+//         await newEmployee.save();
+//         res.json({
+//             message: "Employee created successfully", employee: newEmployee 
+//         });
+//     } catch (error){
+//         res.status(500).json({
+//             message: "Error creating employee", error
+//         });
+//     }
+// };
 
 //Get All Employees
 exports.getEmployees = async (req, res) => {

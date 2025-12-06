@@ -16,44 +16,37 @@ const calculateSalary = (employee) => {
         deduction, 
         netSalary
     };
-};
+}; 
 
 exports.runPayroll = async (req, res) => {
+    console.log("Payroll request body:", req.body);
     try{
-        const {payPeriod} = req.body;
-        if(!payPeriod){
+        const {employeeId, payPeriod, basicSalary, allowances, deductions, netSalary} = req.body;
+        if(!employeeId || !payPeriod){
             return res.status(400).json({
-                message: "Please provide Pay Period"
+                message: "Please provide Employee and Period"
             });
         }
 
-        const employees = await Employee.find();
-        if(employees.length === 0){
+        const employee = await Employee.findById(employeeId);
+        if(!employee){
             return res.status(404).json({
                 message: "No employees found"
             });
         }
 
-        let processed = [];
-        for(let emp of employees){
-            const salary = calculateSalary(emp);
-
-            const payRoll = new PayrollRun({
-                employeeId: emp._id,
-                basicSalary: salary.basicSalary,
-                allowances: salary.allowances,
-                deduction: salary.deduction,
-                netSalary: salary.netSalary,
-                payPeriod
-            }); 
-
-            await payRoll.save();
-            processed.push(payRoll);
-        }
+        const payroll = await PayrollRun.create({
+            employee: employeeId,
+            payPeriod,
+            basicSalary,
+            allowances,
+            deduction: deductions,
+            netSalary
+        });
 
         res.status(201).json({
-            message: "Run completed successfully",
-            data: processed
+            message: "Run completed successfully", payroll
+            // data: processed
         });
 
     } catch(error) {

@@ -231,7 +231,7 @@ table{
 
 th, td{
     padding: 10px;
-    text-align: left;
+    text-align: center;
 }
 
 th{
@@ -241,6 +241,11 @@ th{
 
 tr:nth-child(even){
     background-color: #f1f3f7;
+}
+
+.upbtn{
+    display: flex;
+    gap: 5px;
 }
 
 
