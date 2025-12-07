@@ -83,3 +83,10 @@ document.getElementById("nav_payslip").addEventListener("click", ()=> {
 document.getElementById("nav_setting").addEventListener("click", ()=> {
     window.location.href = "./Setting.html";
 })
+
+function logout(){
+    localStorage.removeItem("token");
+    window.location.href = "./LoginPage.html";
+}
+
+document.getElementById("logout").addEventListener("click", logout);

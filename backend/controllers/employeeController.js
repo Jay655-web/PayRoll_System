@@ -102,3 +102,16 @@ exports.deleteEmployee = async (req, res) => {
         });
     }
 };
+
+exports.getEmployeeById = async (req, res) => {
+    try {
+        const employee = await Employee.findById(req.params.id);
+        if (!employee) {
+            return res.status(404).json({ message: "Employee not found" });
+        }
+        res.status(200).json(employee);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+};

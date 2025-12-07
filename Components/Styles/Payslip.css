@@ -173,6 +173,11 @@ body{
     color: cornflowerblue;
 }
 
+#logout:hover{
+    cursor: pointer;
+}
+
+
 /* MAIN_CONTENT_CSS */
 
 /* .container {

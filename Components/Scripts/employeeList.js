@@ -58,7 +58,16 @@ async function openEditPopup(e) {
         headers: { "Authorization": "Bearer " + token }
     });
 
+    if(!response.ok){
+        const errorData = await response.json().catch(()=>({
+            message: "UN error"
+        }));
+        alert(errorData.message);
+        return;
+    }
+
     const emp = await response.json();
+    console.log(emp);
 
     // Populate popup fields
     document.getElementById("empName").value = emp.fullname;
@@ -189,3 +198,9 @@ document.getElementById("nav_setting").addEventListener("click", ()=> {
 })
 
 
+function logout(){
+    localStorage.removeItem("token");
+    window.location.href = "./LoginPage.html";
+}
+
+document.getElementById("logout").addEventListener("click", logout);
