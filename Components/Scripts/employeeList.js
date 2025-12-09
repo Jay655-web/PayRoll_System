@@ -1,9 +1,10 @@
 // const Employee = require("../../backend/models/Employee");
+import { API_URL } from "../../backend/config/config";
 
 async function loadEmployees(){
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:5000/api/employees", {
+    const response = await fetch(`${API_URL}/api/employees`, {
         headers: {
             "Authorization": "Bearer " + token
         }
@@ -54,7 +55,7 @@ async function openEditPopup(e) {
     const id = e.target.dataset.id;
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`http://localhost:5000/api/employees/${id}`, {
+    const response = await fetch(`${API_URL}/api/employees/${id}`, {
         headers: { "Authorization": "Bearer " + token }
     });
 
@@ -92,7 +93,7 @@ async function deleteEmployee(e) {
 
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`http://localhost:5000/api/employees/${id}`, {
+    const response = await fetch(`${API_URL}/api/employees/${id}`, {
         method: "DELETE",
         headers: { "Authorization": "Bearer " + token }
     });
@@ -135,11 +136,11 @@ document.getElementById("saveEmployee").addEventListener("click", async () => {
     const mode = document.getElementById("saveEmployee").getAttribute("data-mode");
     const id = document.getElementById("saveEmployee").getAttribute("data-id");
 
-    let url = "http://localhost:5000/api/employees";
+    let url = `${API_URL}/api/employees`;
     let method = "POST";
 
     if (mode === "edit") {
-        url = `http://localhost:5000/api/employees/${id}`;
+        url = `${API_URL}/api/employees/${id}`;
         method = "PUT";
     }
 

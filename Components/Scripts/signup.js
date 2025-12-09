@@ -1,3 +1,5 @@
+import { API_URL } from "../../backend/config/config";
+
 document.getElementById("signupForm").addEventListener("submit", async function(e){
     e.preventDefault();
 
@@ -12,7 +14,7 @@ document.getElementById("signupForm").addEventListener("submit", async function(
     console.log(firstname, lastname, fullname, email, password, con_password)
     
     if(password===con_password){
-        const response = await fetch("http://localhost:5000/api/auth/register", {
+        const response = await fetch(`${API_URL}/api/auth/register`, {
             method: "POST",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify({

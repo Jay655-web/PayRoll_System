@@ -1,3 +1,5 @@
+import { API_URL } from "../../backend/config/config";
+
 async function runPayroll() {
     const token = localStorage.getItem("token");
     const period = document.getElementById("period").value;
@@ -11,7 +13,7 @@ async function runPayroll() {
     
     const netSalary = basicSalary + allowances - deductions;
 
-    const response = await fetch("http://localhost:5000/api/payroll/run", {
+    const response = await fetch(`${API_URL}/api/payroll/run`, {
         method: "POST",
         headers: {
             "Authorization": "Bearer " + token,
@@ -48,7 +50,7 @@ async function runPayroll() {
 
 async function loadEmployees() {
     const token = localStorage.getItem("token");
-    const response = await fetch("http://localhost:5000/api/employees", {
+    const response = await fetch(`${API_URL}/api/employees`, {
         headers: { "Authorization": `Bearer ${token}` }
     });
     const employees = await response.json();

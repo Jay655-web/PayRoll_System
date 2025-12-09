@@ -1,3 +1,4 @@
+import { API_URL } from "../../backend/config/config";
 
 document.getElementById("paybtn").addEventListener("click", loadPayslip);
 
@@ -7,7 +8,7 @@ async function loadPayslip(){
     const id = document.getElementById("employeeId").value;
     const period = document.getElementById("period").value;
 
-    const response = await fetch(`http://localhost:5000/api/payslip/${id}/${period}`, {
+    const response = await fetch(`${API_URL}/api/payslip/${id}/${period}`, {
         method:"GET",
         headers: {
             "Authorization": "Bearer " + token

@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+require("./config/keepAlive");
 
 require("dotenv").config({ path: path.join(__dirname, ".env") });
 const connectDB = require("./config/db");
@@ -14,7 +15,16 @@ console.log('Using env file:', path.join(__dirname, '.env'));
 connectDB();
 
 //Middlewares
-app.use(cors());
+app.use(cors(
+    {
+        origin:[
+            "http://localhost:3000",
+            "http://pay-roll-system-ebon.vercel.app/"
+        ],
+        method: "GET,POST,PUT,DELETE",
+        credentials: true
+    }
+));
 app.use(express.json());
 
 // Simple request logger (helps debug routing issues)
