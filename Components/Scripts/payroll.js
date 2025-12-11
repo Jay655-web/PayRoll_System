@@ -1,4 +1,4 @@
-import { API_URL } from "../../backend/config/config";
+import { API_URL } from "./config.js";
 
 async function runPayroll() {
     const token = localStorage.getItem("token");

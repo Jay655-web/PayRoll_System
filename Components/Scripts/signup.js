@@ -1,4 +1,4 @@
-import { API_URL } from "../../backend/config/config";
+import { API_URL } from "./config.js";
 
 document.getElementById("signupForm").addEventListener("submit", async function(e){
     e.preventDefault();

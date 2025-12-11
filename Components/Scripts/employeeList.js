@@ -1,5 +1,5 @@
 // const Employee = require("../../backend/models/Employee");
-import { API_URL } from "../../backend/config/config";
+import { API_URL } from "./config.js";
 
 async function loadEmployees(){
     const token = localStorage.getItem("token");
