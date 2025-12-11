@@ -18,7 +18,7 @@ connectDB();
 app.use(cors(
     {
         origin:[
-            "http://localhost:3000",
+            // "http://localhost:3000",
             "http://pay-roll-system-ebon.vercel.app/"
         ],
         method: "GET,POST,PUT,DELETE",
