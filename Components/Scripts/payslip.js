@@ -45,10 +45,10 @@ async function loadPayslip(){
     position.innerText = payslip.employee.position;
     department.innerText = payslip.employee.department;
         
-    basicSalary.innerText = payslip.basicSalary;
-    allowances.innerText = payslip.allowances;
-    deduction.innerText = payslip.deduction;
-    netpay.innerText = payslip.netSalary;
+    basicSalary.innerText = payslip.basicSalary.toFixed(2);
+    allowances.innerText = payslip.allowances.toFixed(2);
+    deduction.innerText = payslip.deduction.toFixed(2);
+    netpay.innerText = payslip.netSalary.toFixed(2);
     month.innerText = payslip.payPeriod;
 
     const emp_month = document.getElementById("month");
