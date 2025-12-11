@@ -18,8 +18,8 @@ connectDB();
 app.use(cors(
     {
         origin:[
-            // "http://localhost:3000",
-            "http://pay-roll-system-ebon.vercel.app/"
+            'http://127.0.0.1:5500',
+            'https://pay-roll-system-3vvbpz9yt-jay655-webs-projects.vercel.app'
         ],
         method: "GET,POST,PUT,DELETE",
         credentials: true
