@@ -29,7 +29,7 @@ document.getElementById("signupForm").addEventListener("submit", async function(
         if(response.ok){
             document.getElementById("message").innerText = "SignUp Success!";
             console.info("Signup Successful");
-            window.location.href = "./LoginPage.html";
+            window.location.href = "../LoginPage.html";
         }else{
             document.getElementById("message").innerText = data.message;
         }
