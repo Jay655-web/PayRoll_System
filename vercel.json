@@ -1,6 +1,6 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/(.*)", "destination": "./Components/Index.html" }
+    { "source": "/(.*)", "destination": ".Index.html" }
   ]
 }
