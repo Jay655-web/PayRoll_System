@@ -18,12 +18,12 @@ connectDB();
 app.use(cors(
     {
         origin:[
-            'http://127.0.0.1:5500',
-            'https://pay-roll-system-3vvbpz9yt-jay655-webs-projects.vercel.app',
-            'https://jay655-web.github.io/PayRoll_System/',
+            // 'http://127.0.0.1:5500',
+            // 'https://pay-roll-system-3vvbpz9yt-jay655-webs-projects.vercel.app',
+            // 'https://jay655-web.github.io/PayRoll_System/',
             // 'https://pay-roll-system2-ujki-dr0dvwgg8-jay655-webs-projects.vercel.app',
-            'https://pay-roll-system2-ujki-dr0dvwgg8-jay655-webs-projects.vercel.app',
-            'https://payrollsystemamali.netlify.app/'
+            "https://pay-roll-system2-ujki-dr0dvwgg8-jay655-webs-projects.vercel.app",
+            "https://payrollsystemamali.netlify.app/"
         ],
         method: "GET,POST,PUT,DELETE",
         credentials: true
